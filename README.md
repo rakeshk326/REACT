@@ -1,0 +1,1 @@
+Yummy is a dynamic and responsive multipage react-based web application. It features a user-friendly interface where users can seamlessly order food, explore a neatly organized menu, and manage their details effortlessly.
