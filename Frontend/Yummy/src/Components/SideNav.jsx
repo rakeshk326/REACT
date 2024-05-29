@@ -31,7 +31,7 @@ const SideNav = ({ sideNav, handleClick }) => {
             </li>
             </Link>
 
-            <Link to="/main">
+            <Link to="/">
             <li className='text-xl font-semibold py-4 flex'>
                 <BiFoodMenu className='text-white bg-gray-900 rounded-full font-extrabold px-1 mr-4' size={25}/>
                 Main Menu

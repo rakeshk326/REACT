@@ -7,7 +7,7 @@ import YummyLogo from '../Images/YummyLogo.png';
 import CartEmpty from '../Images/CartEmpty.png';
 
 const OrderHistory = () => {
-    const { confirmedItems, userDetails, totalAmount } = useContext(cartContext);
+    const { confirmedItems, totalAmount } = useContext(cartContext);
     const [sideNav, setSideNav] = useState(false);
 
     const handleClick = () => {
@@ -27,11 +27,11 @@ const OrderHistory = () => {
                         </div>
                     </div>
 
-                    <button className='bg-orange-600 text-[13px] text-white flex items-center px-[8px] py-[7px] mx-1 rounded-xl lg:px-3 lg:py-2 lg:mx-3 lg:text-[16px]'>
+                    {/* <button className='bg-orange-600 text-[13px] text-white flex items-center px-[8px] py-[7px] mx-1 rounded-xl lg:px-3 lg:py-2 lg:mx-3 lg:text-[16px]'>
                         <BsPerson className='text-[13px] font-bold lg:text-[19px]' />
                         <span className='ml-1'></span>
                         {userDetails.fullName}
-                    </button>
+                    </button> */}
                 </div>
             </div>
 

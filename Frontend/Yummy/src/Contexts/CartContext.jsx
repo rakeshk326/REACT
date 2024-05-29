@@ -4,7 +4,6 @@ export const cartContext = createContext();
 
 const CartContextProvider = (props) => {
     const [count, setCount] = useState(0);
-    const [userDetails, setUserDetails] = useState({});
     const [cartItems, setCartItems] = useState([]);
     const [confirmedItems, setConfirmedItems] = useState([]);
 
@@ -74,11 +73,6 @@ const CartContextProvider = (props) => {
     }, []);
 
     useEffect(() => {
-        const details = JSON.parse(localStorage.getItem('userData')) || {};
-        setUserDetails(details);
-    }, []);
-
-    useEffect(() => {
         const uniqueItems = new Set();
 
         cartItems.forEach((item) => {
@@ -91,7 +85,7 @@ const CartContextProvider = (props) => {
     }, [cartItems]);
 
     return (
-        <cartContext.Provider value={{ count, cartItems, confirmedItems, addCart, removeCart, totalAmount, userDetails, confirmOrder }}>
+        <cartContext.Provider value={{ count, cartItems, confirmedItems, addCart, removeCart, totalAmount, confirmOrder }}>
             {props.children}
         </cartContext.Provider>
     );

@@ -10,40 +10,42 @@ import Categories from "./Components/Categories";
 import NewsLettter from "./Components/NewsLettter";
 import Footer from "./Components/Footer";
 import Orders from "./Components/Orders";
-import Login from "./Components/Login";
+import Signup from "./Components/Signup";
+import Signin from "./Components/Signin";
+import EditProfile from "./Components/EditProfile";
 import Account from "./Components/Account";
 import OrderHistory from "./Components/OrderHistory";
 
 function Main() {
   return (
-    <>
-    <CartContextProvider>
-        <main>
-          <TopNav />
-          <Featured />
-          <Delivery />
-          <TopPicks />
-          <Meals />
-          <Categories />
-          <NewsLettter />
-          <Footer />
-        </main>
-      </CartContextProvider>
-    </>
+    <main>
+      <TopNav />
+      <Featured />
+      <Delivery />
+      <TopPicks />
+      <Meals />
+      <Categories />
+      <NewsLettter />
+      <Footer />
+    </main>
   );
 }
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<CartContextProvider> <Login /> </CartContextProvider>}/>
-        <Route path="/main" element={<Main />}/>
-        <Route path="/delivery" element={<CartContextProvider> <OrderHistory /> </CartContextProvider>}/>
-        <Route path="/myaccount" element={<CartContextProvider> <Account /> </CartContextProvider>}/>
-        <Route path="/orders" element={<CartContextProvider> <Orders /> </CartContextProvider>}/>
-      </Routes>
-    </Router>
+    <CartContextProvider>
+      <Router>
+        <Routes>
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/editprofile" element={<EditProfile />} />
+          <Route path="/" element={<Main />} />
+          <Route path="/delivery" element={<OrderHistory />} />
+          <Route path="/myaccount" element={<Account />} />
+          <Route path="/orders" element={<Orders />} />
+        </Routes>
+      </Router>
+    </CartContextProvider>
   );
 }
 

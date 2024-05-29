@@ -66,11 +66,11 @@ const Orders = () => {
             </div>
           </div>
 
-          <button className='bg-orange-600 text-[14px] text-white flex items-center px-[9px] py-[7px] mx-1 rounded-xl lg:px-3 lg:py-2 lg:mx-3 lg:text-[16px]'>
+          {/* <button className='bg-orange-600 text-[14px] text-white flex items-center px-[9px] py-[7px] mx-1 rounded-xl lg:px-3 lg:py-2 lg:mx-3 lg:text-[16px]'>
             <BsPerson className='text-[15px] font-bold lg:text-[19px]' />
             <span className='ml-1'></span>
             {userDetails.fullName}
-          </button>
+          </button> */}
         </div>
       </div>
 

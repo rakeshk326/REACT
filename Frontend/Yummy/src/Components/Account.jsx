@@ -1,20 +1,43 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { BsPerson, BsFillCartFill } from 'react-icons/bs';
 import { TbTruckReturn } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
 import YummyLogo from '../Images/YummyLogo.png';
 import SideNav from './SideNav';
+import axios from 'axios';
 import { cartContext } from '../Contexts/CartContext';
 
 const Account = () => {
 
     const { userDetails } = useContext(cartContext);
+    const [user,setUser] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    address: '',
+    });
     const [sideNav, setSideNav] = useState(false);
 
   const handleClick = () => {
     setSideNav(!sideNav);
   };
+
+  useEffect(() => {
+    const fetchUserDetails = async() => {
+
+      try {
+        const response = await axios.get("http://localhost:8000/user/myAccount", {
+          withCredentials: true
+        });
+        setUser(response.data);
+      } catch (error) {
+        console.error("Error fetching user details:", error);
+      }
+
+    }
+    fetchUserDetails();
+  }, [])
 
   return (
     <div>
@@ -27,7 +50,7 @@ const Account = () => {
               <img src={YummyLogo} alt="YummyLogo" className='w-[95px] lg:w-[110px]' style={{ color: 'fill-orange-700', paddingLeft: '8px' }} />
             </div>
           </div>
-        <Link to="/"><button className="bg-orange-600 text-[12px] text-white flex items-center px-[9px] py-[7px] mx-1 rounded-md lg:px-3 lg:py-2 lg:mx-3 lg:text-[16px]" onClick={() => {}}>Edit Profile</button></Link>
+        <Link to="/editprofile"><button className="bg-orange-600 text-[12px] text-white flex items-center px-[9px] py-[7px] mx-1 rounded-md lg:px-3 lg:py-2 lg:mx-3 lg:text-[16px]" onClick={() => {}}>Edit Profile</button></Link>
       </div>
 
       <div className="flex flex-col items-center justify-center mx-4 mt-24">
@@ -42,15 +65,7 @@ const Account = () => {
                 Full name
               </dt>
               <dd className='mt-1 text-sm text-gray-900'>
-                {userDetails.fullName}
-              </dd>
-            </div>
-            <div className='py-3'>
-              <dt className='text-sm font-medium text-gray-500'>
-                Age
-              </dt>
-              <dd className='mt-1 text-sm text-gray-900'>
-                {userDetails.age}
+                {user.fullName}
               </dd>
             </div>
             <div className='py-3'>
@@ -58,7 +73,7 @@ const Account = () => {
                 Email address
               </dt>
               <dd className='mt-1 text-sm text-gray-900'>
-                {userDetails.email}
+                {user.email}
               </dd>
             </div>
             <div className='py-3'>
@@ -66,7 +81,7 @@ const Account = () => {
                 Phone number
               </dt>
               <dd className='mt-1 text-sm text-gray-900'>
-                {userDetails.phone}
+                {user.phone}
               </dd>
             </div>
             <div className='py-3'>
@@ -74,7 +89,7 @@ const Account = () => {
                 Address
               </dt>
               <dd className='mt-1 text-sm text-gray-900'>
-                {userDetails.address}
+                {user.address}
               </dd>
             </div>
           </dl>

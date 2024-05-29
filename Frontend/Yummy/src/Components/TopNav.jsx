@@ -40,13 +40,15 @@ const TopNav = () => {
 
 
         {count <= 0 ? (
-          <Link to="/orders">
-          <button className='bg-orange-600 text-[14px] text-white flex items-center px-[9px] py-[7px] mx-1 rounded-xl lg:px-3 lg:py-2 lg:mx-3 lg:text-[18px]'>
-            <BsFillCartFill className='text-[13px] lg:text-[19px]' />
-            <span className='ml-1'></span>
-            Cart
-          </button>
-          </Link>
+            <div>
+              <Link to="/orders">
+              <button className='bg-orange-600 text-[14px] text-white flex items-center px-[9px] py-[7px] mx-1 rounded-xl lg:px-3 lg:py-2 lg:mx-3 lg:text-[18px]'>
+                <BsFillCartFill className='text-[13px] lg:text-[19px]' />
+                <span className='ml-1'></span>
+                Cart
+              </button>
+              </Link>
+            </div>
         ) : (
           <div className="relative inline-flex items-center">
             <Link to="/orders">
