@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 8000;
 const cors = require('cors');
 require('dotenv').config();
 const mongoose = require("mongoose");
@@ -18,7 +18,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(checkForAuthenticationCookie("token"));
 
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect('mongodb+srv://kprakesh2002:sJH9NTNw9zjW4UFV@yummy-foods-db.ferbn29.mongodb.net/yummy?retryWrites=true&w=majority&appName=yummy-foods-db')
 .then(console.log("MongoDB connected"));
 
 app.use("/user", userRouter);
