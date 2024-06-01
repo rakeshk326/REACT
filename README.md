@@ -1,2 +1,4 @@
 # food-ordering-app-using-react
-This repository contains a dynamic and responsive multipage react-based web application for food ordering from a restaurant. It features a user-friendly interface where users can seamlessly order food, explore a neatly organized menu, and manage their details effortlessly.
+This repository contains a dynamic and responsive multipage MERN-based web application for food ordering from a restaurant. It features a user-friendly interface where users can seamlessly order food, explore a neatly organized menu, and manage their details effortlessly.
+
+The application is built using React for the frontend, providing a smooth and interactive user experience. Express powers the backend, efficiently handling server-side operations and routing. Communication between the frontend and backend is facilitated through REST APIs, ensuring seamless data exchange. User authentication is securely managed using JWT (JSON Web Tokens), safeguarding user information and login sessions. For data storage, MongoDB is utilized, offering a flexible and scalable NoSQL database solution.
