@@ -33,7 +33,7 @@ const Signup = () => {
     setError('');
   
     try {
-      await axios.post("https://yummy-foods.onrender.com/user/signup", userData);
+      await axios.post("http://localhost:8000/user/signup", userData);
       setRegister(true);
     } catch (error) {
       if (error.response && error.response.data && error.response.data.message) {
