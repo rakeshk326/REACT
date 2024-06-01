@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(checkForAuthenticationCookie("token"));
 
-mongoose.connect('mongodb://127.0.0.1:27017/yummy')
+mongoose.connect('mongodb+srv://kprakesh2002:sJH9NTNw9zjW4UFV@yummy-foods-db.ferbn29.mongodb.net/yummy?retryWrites=true&w=majority&appName=yummy-foods-db')
 .then(console.log("MongoDB connected"));
 
 app.use("/user", userRouter);
