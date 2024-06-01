@@ -7,9 +7,10 @@ import confetti from 'canvas-confetti';
 import SideNav from './SideNav';
 import YummyLogo from '../Images/YummyLogo.png';
 import OrderPlaced from '../Images/OrderPlaced.png';
+import axios from 'axios';
 
 const Orders = () => {
-  const { cartItems, totalAmount, confirmOrder,confirmedItems, addCart, removeCart, userDetails } = useContext(cartContext);
+  const { cartItems, totalAmount, confirmOrder, addCart, removeCart } = useContext(cartContext);
   const [overallTotal, setOverallTotal] = useState(0);
   const [apply, setApply] = useState(true);
   const [confirm, setConfirm] = useState(false);
@@ -26,6 +27,8 @@ const Orders = () => {
   const confirmOrdering = () => {
     confirmOrder();
     setConfirm(true);
+    triggerConfetti();
+    postOrderDetails();
   }
 
   const getQuantity = (itemId) => {
@@ -53,6 +56,31 @@ const Orders = () => {
     });
   };
 
+  const postOrderDetails = async () => {
+    const orderDetails = {
+      foods: cartItems.map(item => ({
+        id: item.id,
+        name: item.name,
+        itemPrice: item.price,
+        category: item.category,
+        image: item.image,
+        quantity: item.quantity,
+        totalPrice: totalAmount(item)
+      })),
+      total: overallTotal,
+    };
+
+    try {
+      const response = await axios.post('http://localhost:8000/order/saveOrders', orderDetails, {withCredentials: true});
+    } catch (error) {
+        if (error.response && error.response.data && error.response.data.message) {
+          console.log(error.response.data.message)
+        } else {
+          console.log("Error saving order");
+        }
+      }
+  };
+
   return (
     <>
       <div className={`top-0 left-0 right-0 p-4`}>
@@ -65,12 +93,6 @@ const Orders = () => {
               <img src={YummyLogo} alt="YummyLogo" className='w-[95px] lg:w-[110px]' style={{ color: 'fill-orange-700', paddingLeft: '8px' }} />
             </div>
           </div>
-
-          {/* <button className='bg-orange-600 text-[14px] text-white flex items-center px-[9px] py-[7px] mx-1 rounded-xl lg:px-3 lg:py-2 lg:mx-3 lg:text-[16px]'>
-            <BsPerson className='text-[15px] font-bold lg:text-[19px]' />
-            <span className='ml-1'></span>
-            {userDetails.fullName}
-          </button> */}
         </div>
       </div>
 
@@ -187,7 +209,7 @@ const Orders = () => {
             </div>
 
             <div className='mt-4 text-center'>
-              <button onClick={() => {triggerConfetti(); confirmOrdering()}} className='block text-center w-full px-1 py-2 overflow-hidden rounded bg-green-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300 cursor-pointer'>
+              <button onClick={() => {confirmOrdering()}} className='block text-center w-full px-1 py-2 overflow-hidden rounded bg-green-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300 cursor-pointer'>
                 CONFIRM AND PLACE ORDER
               </button>
             </div>

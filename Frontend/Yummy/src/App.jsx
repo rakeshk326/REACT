@@ -14,7 +14,9 @@ import Signup from "./Components/Signup";
 import Signin from "./Components/Signin";
 import EditProfile from "./Components/EditProfile";
 import Account from "./Components/Account";
+import ProtectedRoute from "./Components/ProtectedRoute";
 import OrderHistory from "./Components/OrderHistory";
+import PastOrders from "./Components/PastOrders";
 
 function Main() {
   return (
@@ -36,13 +38,18 @@ function App() {
     <CartContextProvider>
       <Router>
         <Routes>
-          <Route path="/signin" element={<Signin />} />
+          <Route path="/" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/editprofile" element={<EditProfile />} />
-          <Route path="/" element={<Main />} />
-          <Route path="/delivery" element={<OrderHistory />} />
-          <Route path="/myaccount" element={<Account />} />
-          <Route path="/orders" element={<Orders />} />
+
+          <Route path="/" element={<ProtectedRoute />}>
+            <Route path="/main" element={<Main />} />
+            <Route path="/delivery" element={<OrderHistory />} />
+            <Route path="/myaccount" element={<Account />} />
+            <Route path="/editprofile" element={<EditProfile />} />
+            <Route path="/pastorders" element={<PastOrders />} />
+            <Route path="/orders" element={<Orders />} />
+          </Route>
+
         </Routes>
       </Router>
     </CartContextProvider>

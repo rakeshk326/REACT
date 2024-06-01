@@ -4,6 +4,7 @@ const PORT = 8000;
 const cors = require('cors');
 const mongoose = require("mongoose");
 const userRouter = require('./routes/user');
+const orderRouter = require('./routes/order');
 const cookieParser = require('cookie-parser');
 const { checkForAuthenticationCookie } = require("./middlewares/authentication");
 
@@ -20,5 +21,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/yummy')
 .then(console.log("MongoDB connected"));
 
 app.use("/user", userRouter);
+app.use("/order", orderRouter);
 
 app.listen(PORT, () => console.log(`Server running at port : ${PORT}`));

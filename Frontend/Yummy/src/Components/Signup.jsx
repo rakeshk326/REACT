@@ -84,7 +84,7 @@ const Signup = () => {
                 onChange={handleInputChange}
                 autoComplete="name"
                 required
-                className="block w-full rounded-md bg-white border border-gray-300 py-1 md:py-1.5 px-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-600 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md bg-white border border-gray-300 py-1.5 px-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-600 placeholder:text-gray-400 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -105,7 +105,7 @@ const Signup = () => {
                 onChange={handleInputChange}
                 autoComplete="password"
                 required
-                className="block w-full rounded-md bg-white border border-gray-300 py-1 md:py-1.5 px-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-600 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md bg-white border border-gray-300 py-1.5 px-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-600 placeholder:text-gray-400 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -126,7 +126,7 @@ const Signup = () => {
                 onChange={handleInputChange}
                 autoComplete="email"
                 required
-                className="block w-full rounded-md bg-white border border-gray-300 py-1 md:py-1.5 px-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-600 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md bg-white border border-gray-300 py-1.5 px-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-600 placeholder:text-gray-400 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -147,7 +147,7 @@ const Signup = () => {
                 onChange={handleInputChange}
                 autoComplete="tel"
                 required
-                className="block w-full rounded-md bg-white border border-gray-300 py-1 md:py-1.5 px-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-600 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md bg-white border border-gray-300 py-1.5 px-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-600 placeholder:text-gray-400 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -168,7 +168,7 @@ const Signup = () => {
                 onChange={handleInputChange}
                 autoComplete="address"
                 required
-                className="block w-full rounded-md bg-white border border-gray-300 py-1 md:py-1.5 px-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-600 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md bg-white border border-gray-300 py-1.5 px-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-600 placeholder:text-gray-400 sm:text-sm sm:leading-6"
               />
             </div>
           </div>

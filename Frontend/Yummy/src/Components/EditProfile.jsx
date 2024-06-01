@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import YummyLogo from '../Images/YummyLogo.png';
-import { cartContext } from '../Contexts/CartContext';
 import axios from 'axios';
 
 const EditProfile = () => {
@@ -9,7 +8,6 @@ const EditProfile = () => {
   const navigate = useNavigate();
   const [error, setError] = useState('');
   const [change, setChange] = useState(false);
-  const { userDetails } = useContext(cartContext);
   const [userData, setUserData] = useState({
     fullName: '',
     email: '',
@@ -19,17 +17,10 @@ const EditProfile = () => {
 
   useEffect(() => {
     if (change) {
-      navigate('/');
+      navigate('/main');
     }
   }, [change, navigate]);
   
-
-//   useEffect(() => {
-//     const storedUserData = JSON.parse(localStorage.getItem('userData'));
-//     if (storedUserData) {
-//       setUserData(storedUserData);
-//     }
-//   }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -80,7 +71,7 @@ const EditProfile = () => {
         </h2>
       </div>
 
-      <div className="mt-2 md:mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className="mt-4 md:mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
 
         { error && 
         <div className="p-4 mb-4 text-sm text-red-600 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
@@ -88,7 +79,7 @@ const EditProfile = () => {
         </div>
         }
 
-        <form className="space-y-6" onSubmit={handleSubmit}>
+        <form className="space-y-3 md:space-y-4.5" onSubmit={handleSubmit}>
 
           <div>
             <label
@@ -178,7 +169,7 @@ const EditProfile = () => {
           <div>
             <button
               type="submit"
-              className="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+              className="flex w-full justify-center rounded-md mt-4 bg-orange-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
             >
               Review Changes
             </button>

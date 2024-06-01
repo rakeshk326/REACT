@@ -1,9 +1,10 @@
 import React from 'react';
-import { AiOutlineClose } from 'react-icons/ai';
+import { AiOutlineClose, AiOutlineHistory } from 'react-icons/ai';
 import { BsPerson, BsFillCartFill } from 'react-icons/bs';
 import { BiFoodMenu } from "react-icons/bi";
-import { TbTruckReturn } from 'react-icons/tb';
+import { TbTruckReturn, TbLogout2 } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
 import YummyLogo from '../Images/YummyLogo.png';
 
 const SideNav = ({ sideNav, handleClick }) => {
@@ -31,17 +32,24 @@ const SideNav = ({ sideNav, handleClick }) => {
             </li>
             </Link>
 
-            <Link to="/">
+            <Link to="/main">
             <li className='text-xl font-semibold py-4 flex'>
                 <BiFoodMenu className='text-white bg-gray-900 rounded-full font-extrabold px-1 mr-4' size={25}/>
                 Main Menu
               </li>
             </Link>
 
+            <Link to="/pastorders">
+              <li className='text-xl font-semibold py-4 flex'>
+                <AiOutlineHistory className='text-white bg-gray-900 rounded-full font-extrabold px-1 mr-4' size={25}/>
+                My Orders
+              </li>
+            </Link>
+
               <Link to="/orders">
               <li className='text-xl font-semibold py-4 flex'>
                 <BsFillCartFill className='text-white bg-gray-900 rounded-full font-extrabold px-1 mr-4' size={25}/>
-                My Orders
+                My Cart
               </li>
               </Link>
 
@@ -49,6 +57,15 @@ const SideNav = ({ sideNav, handleClick }) => {
               <li className='text-xl font-semibold py-4 flex'>
                 <TbTruckReturn className='text-white bg-gray-900 rounded-full font-extrabold px-1 mr-4' size={25}/>
                 Delivery
+              </li>
+              </Link>
+
+              <Link to="/" onClick={() => {
+                Cookies.remove('token');
+              }}>
+              <li className='text-xl font-semibold py-4 flex'>
+                <TbLogout2 className='text-white bg-gray-900 rounded-full font-extrabold px-1 mr-4' size={25}/>
+                Log out
               </li>
               </Link>
 

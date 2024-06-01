@@ -16,7 +16,7 @@ const Signin = () => {
 
   useEffect(() => {
     if (register) {
-      navigate('/');
+      navigate('/main');
     }
   }, [register, navigate]);
 
@@ -80,7 +80,7 @@ const Signin = () => {
                 onChange={handleInputChange}
                 autoComplete="email"
                 required
-                className="block w-full rounded-md bg-white border border-gray-300 py-1 md:py-1.5 px-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-600 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md bg-white border border-gray-300 py-1.5 px-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-600 placeholder:text-gray-400 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -101,7 +101,7 @@ const Signin = () => {
                 onChange={handleInputChange}
                 autoComplete="password"
                 required
-                className="block w-full rounded-md bg-white border border-gray-300 py-1 md:py-1.5 px-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-600 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md bg-white border border-gray-300 py-1.5 px-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-600 placeholder:text-gray-400 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -109,7 +109,7 @@ const Signin = () => {
           <div>
             <button
               type="submit"
-              className="flex w-full justify-center rounded-md mt-4 bg-orange-600 px-3 py-1 md:py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+              className="flex w-full justify-center rounded-md mt-4 bg-orange-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
             >
               Login
             </button>
