@@ -71,7 +71,7 @@ const Orders = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:8000/order/saveOrders', orderDetails, {withCredentials: true});
+      const response = await axios.post('https://yummy-foods.onrender.com/order/saveOrders', orderDetails, {withCredentials: true});
     } catch (error) {
         if (error.response && error.response.data && error.response.data.message) {
           console.log(error.response.data.message)

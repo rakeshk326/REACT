@@ -15,7 +15,7 @@ const PastOrders = () => {
     useEffect(() => {
         const fetchOrderDetails = async () => {
           try {
-            const response = await axios.get("http://localhost:8000/order/pastorders", {
+            const response = await axios.get("https://yummy-foods.onrender.com/order/pastorders", {
               withCredentials: true
             });
             setOrders(response.data);

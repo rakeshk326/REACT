@@ -47,7 +47,7 @@ const EditProfile = () => {
     setError('');
   
     try {
-      await axios.put("http://localhost:8000/user/editprofile", userData, {withCredentials: true});
+      await axios.put("https://yummy-foods.onrender.com/user/editprofile", userData, {withCredentials: true});
       setChange(true);
     } catch (error) {
       if (error.response && error.response.data && error.response.data.message) {
