@@ -30,11 +30,28 @@ app.options('*', cors());
 app.use((req, res, next) => {
     res.header(
       "Access-Control-Allow-Origin",
-      "React app URL"
+      "http://localhost:5173"
     );
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.header("Access-Control-Allow-Headers", "Content-Type");
     next();
 });
+
+const allowMethods = ['GET', 'POST'];
+const allowHeaders = ['Content-Type', 'Authorization'];
+
+app.options("*", (req, res) => {
+    console.log("preflight");
+    if (
+      req.headers.origin === "https://yummy-foods.onrender.com" &&
+      allowMethods.includes(req.headers["access-control-request-method"]) &&
+      allowHeaders.includes(req.headers["access-control-request-headers"])
+    ) {
+      console.log("pass");
+      return res.status(204).send();
+    } else {
+      console.log("fail");
+    }
+  });
 
 app.listen(PORT, () => console.log(`Server running at port : ${PORT}`));
