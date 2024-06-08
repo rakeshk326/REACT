@@ -1,7 +1,7 @@
-const express = require("express");
-const router = express.Router();
-const { format } = require('date-fns');
-const Order = require('../models/order');
+import { Router } from "express";
+const router = Router();
+import { format } from 'date-fns';
+import Order from '../models/order';
 
 router.post("/saveOrders", async (req,res) => {
 
@@ -33,4 +33,4 @@ router.get("/pastorders", async(req,res) => {
     }
 })
 
-module.exports = router;
+export default router;
