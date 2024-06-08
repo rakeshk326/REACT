@@ -1,28 +1,28 @@
-import express, { urlencoded, json } from 'express';
-import cors from 'cors';
+const express = require('express');
+const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 8000;
 require('dotenv').config();
-import { connect } from "mongoose";
-import userRouter from './routes/user';
-import orderRouter from './routes/order';
-import cookieParser from 'cookie-parser';
-import { validateToken } from '../services/authentication';
-import { checkForAuthenticationCookie } from "./middlewares/authentication";
+const mongoose = require("mongoose");
+const userRouter = require('./routes/user').default;
+const orderRouter = require('./routes/order');
+const cookieParser = require('cookie-parser');
 
-app.use(urlencoded({ extended: true }));
+const { checkForAuthenticationCookie } = require("./middlewares/authentication");
+
+app.use(express.urlencoded({ extended: true }));
 app.use(cors({ 
     origin: 'http://localhost:5173', 
     credentials: true 
 }))
 app.use(cookieParser());
-app.use(json());
+app.use(express.json());
 app.use(checkForAuthenticationCookie("token"));
 
 app.use("/user", userRouter);
 app.use("/order", orderRouter);
 
-connect(process.env.MONGO_URL)
+mongoose.connect(process.env.MONGO_URL)
     .then(() => console.log("MongoDB connected"))
     .catch(err => console.error("MongoDB connection error:", err));
 

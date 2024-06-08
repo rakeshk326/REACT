@@ -1,4 +1,4 @@
-import { validateToken } from '../services/authentication';
+const { validateToken } = require('../services/authentication');
 
 function checkForAuthenticationCookie(cookieName) {
     return (req,res,next) => {
@@ -19,6 +19,6 @@ function checkForAuthenticationCookie(cookieName) {
     }
 }
 
-export default {
+module.exports = {
     checkForAuthenticationCookie
 }

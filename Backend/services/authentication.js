@@ -1,4 +1,4 @@
-import { sign, verify } from 'jsonwebtoken';
+const JWT = require('jsonwebtoken');
 require('dotenv').config();
 const SECRET_KEY = 'YummyF00d';
 
@@ -9,16 +9,16 @@ function createToken(user) {
         email: user.email,
     }
 
-    const token = sign(process.env.SECRET_KEY || SECRET_KEY);
+    const token = JWT.sign(process.env.SECRET_KEY || SECRET_KEY);
     return token;
 }
 
 function validateToken(token) {
-    const payload = verify(process.env.SECRET_KEY || SECRET_KEY);
+    const payload = JWT.verify(process.env.SECRET_KEY || SECRET_KEY);
     return payload;
 }
 
-export default {
+module.exports = {
     createToken,
     validateToken
 }
