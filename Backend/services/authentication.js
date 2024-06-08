@@ -9,12 +9,12 @@ function createToken(user) {
         email: user.email,
     }
 
-    const token = JWT.sign(process.env.SECRET_KEY || SECRET_KEY);
+    const token = JWT.sign(payload,process.env.SECRET_KEY || SECRET_KEY);
     return token;
 }
 
 function validateToken(token) {
-    const payload = JWT.verify(process.env.SECRET_KEY || SECRET_KEY);
+    const payload = JWT.verify(token,process.env.SECRET_KEY || SECRET_KEY);
     return payload;
 }
 
