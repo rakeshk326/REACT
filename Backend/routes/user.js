@@ -36,6 +36,7 @@ router.post("/signin", async(req,res) => {
 router.get("/myAccount", async(req,res) => {
 
     console.log("Before try")
+    console.log(req.user);
 
     try {
         const user = await User.findById(req.user._id);
