@@ -27,12 +27,11 @@ const handleSubmit = async (e) => {
     const response = await axios.post("https://yummy-foods.onrender.com/user/signin", userData, { withCredentials: true });
     console.log(response);
     
-    if (response.data) {
+    if (response.status == 200) {
+      console.log("Navigating");
       navigate('/main');
-    } else {
-      
-      setError(response.data.message || "Login failed");
-    }
+    } 
+
   } catch (error) {
     
     if (error.response && error.response.data && error.response.data.message) {

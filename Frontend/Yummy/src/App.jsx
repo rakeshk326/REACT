@@ -41,14 +41,14 @@ function App() {
           <Route path="/" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
 
-          <Route path="/" element={<ProtectedRoute />}>
+          {/* <Route path="/" element={<ProtectedRoute />}> */}
             <Route path="/main" element={<Main />} />
             <Route path="/delivery" element={<OrderHistory />} />
             <Route path="/myaccount" element={<Account />} />
             <Route path="/editprofile" element={<EditProfile />} />
             <Route path="/pastorders" element={<PastOrders />} />
             <Route path="/orders" element={<Orders />} />
-          </Route>
+          {/* </Route> */}
 
         </Routes>
       </Router>
