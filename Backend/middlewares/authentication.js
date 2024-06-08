@@ -9,6 +9,7 @@ function checkForAuthenticationCookie(cookieName) {
 
         try {
             const userPayload = validateToken(cookieValue);
+            console.log(req.user);
             req.user = userPayload;
         } catch (err) {
             console.error("Error decoding token:", err);
