@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const path = require('path');
 const PORT = process.env.PORT || 8000;
 require('dotenv').config();
 const mongoose = require("mongoose");
@@ -18,15 +19,14 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(checkForAuthenticationCookie("token"));
 
+app.use("/user", userRouter);
+app.use("/order", orderRouter);
+
 mongoose.connect(process.env.MONGO_URL)
     .then(() => console.log("MongoDB connected"))
     .catch(err => console.error("MongoDB connection error:", err));
 
-app.use("/user", userRouter);
-app.use("/order", orderRouter);
-
 app.options('*', cors());
-
 app.use((req, res, next) => {
     res.header(
       "Access-Control-Allow-Origin",

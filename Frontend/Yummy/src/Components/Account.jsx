@@ -27,7 +27,7 @@ const Account = () => {
     const fetchUserDetails = async() => {
 
       try {
-        const response = await axios.get("https://yummy-foods.onrender.com/user/myAccount", {
+        const response = await axios.get("http://localhost:8000/user/myAccount", {
           withCredentials: true
         });
         setUser(response.data);

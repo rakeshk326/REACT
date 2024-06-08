@@ -8,39 +8,40 @@ const Signin = () => {
 
   const navigate = useNavigate();
   const [error, setError] = useState('');
-  const [register, setRegister] = useState(false);
   const [userData, setUserData] = useState({
     email: '',
     password: '',
   });
 
-  useEffect(() => {
-    if (register) {
-      navigate('/main');
-    }
-  }, [register, navigate]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUserData((prevData) => ({ ...prevData, [name]: value }));
-    localStorage.setItem('userData', JSON.stringify({ ...userData, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
-  
-    try {
-      await axios.post("https://yummy-foods.onrender.com/user/signin", userData, { withCredentials: true });
-      setRegister(true);
-    } catch (error) {
-        if (error.response && error.response.data && error.response.data.message) {
-          setError(error.response.data.message);
-        } else {
-          setError("Error logging in");
-        }
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setError('');
+ 
+  try {
+    const response = await axios.post("https://yummy-foods.onrender.com/user/signin", userData, { withCredentials: true });
+    console.log(response);
+    
+    if (response.data) {
+      navigate('/main');
+    } else {
+      
+      setError(response.data.message || "Login failed");
     }
-  };
+  } catch (error) {
+    
+    if (error.response && error.response.data && error.response.data.message) {
+      setError(error.response.data.message);
+    } else {
+      setError("Error logging in");
+    }
+  }
+};
   
   return (
     <div className="flex flex-col justify-center min-h-screen items-center px-6 py-12 lg:px-8">

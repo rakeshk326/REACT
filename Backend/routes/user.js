@@ -35,6 +35,8 @@ router.post("/signin", async(req,res) => {
 
 router.get("/myAccount", async(req,res) => {
 
+    console.log("Before try")
+
     try {
         const user = await User.findById(req.user._id);
         if(!user){
@@ -42,6 +44,7 @@ router.get("/myAccount", async(req,res) => {
         }
         res.status(200).json(user);
     } catch (error) {
+        console.error('Error fetching user details:', error);
         res.status(500).json({ message: "Internal server error" });
     }
 })
