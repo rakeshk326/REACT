@@ -1,4 +1,5 @@
 import { sign, verify } from 'jsonwebtoken';
+require('dotenv').config();
 const SECRET_KEY = 'YummyF00d';
 
 function createToken(user) {
@@ -8,12 +9,12 @@ function createToken(user) {
         email: user.email,
     }
 
-    const token = sign(SECRET_KEY);
+    const token = sign(process.env.SECRET_KEY || SECRET_KEY);
     return token;
 }
 
 function validateToken(token) {
-    const payload = verify(SECRET_KEY);
+    const payload = verify(process.env.SECRET_KEY || SECRET_KEY);
     return payload;
 }
 
