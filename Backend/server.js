@@ -4,11 +4,10 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 require('dotenv').config();
 const mongoose = require("mongoose");
-const userRouter = require('./routes/user').default;
+const userRouter = require('./routes/user');
 const orderRouter = require('./routes/order');
 const cookieParser = require('cookie-parser');
-
-const { checkForAuthenticationCookie } = require("./middlewares/authentication");
+const { checkForAuthenticationCookie } = require('./middlewares/authentication');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ 
