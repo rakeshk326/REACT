@@ -1,4 +1,10 @@
 {
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
     "@splidejs/react-splide": "^0.7.12",
@@ -7,3 +13,5 @@
     "react-router-dom": "^6.20.1"
   }
 }
+
+
