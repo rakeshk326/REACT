@@ -60,13 +60,11 @@ const SideNav = ({ sideNav, handleClick }) => {
               </li>
               </Link>
 
-              <Link to="/" onClick={() => {
-                Cookies.remove('token');
-              }}>
-              <li className='text-xl font-semibold py-4 flex'>
+              <Link to="/">
+              <button onClick={() => { localStorage.removeItem('token'); }} className='text-xl font-semibold py-4 flex'>
                 <TbLogout2 className='text-white bg-gray-900 rounded-full font-extrabold px-1 mr-4' size={25}/>
                 Log out
-              </li>
+              </button>
               </Link>
 
           </ul>
