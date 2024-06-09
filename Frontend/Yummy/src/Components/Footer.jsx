@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare } from 'react-icons/fa';
+import { AiOutlineInstagram, AiOutlineFacebook, AiOutlineTwitter } from "react-icons/ai";
 
 const Footer = () => {
   return (
@@ -12,15 +12,15 @@ const Footer = () => {
       <div className='flex flex-row justify-center items-center pt-3 pb-7'>
         
         <div className='px-2'>
-          <FaFacebookSquare size={30} className='cursor-pointer'/>
+          <AiOutlineFacebook size={30} className='cursor-pointer'/>
         </div>
 
         <div className='px-2'>
-        < FaInstagramSquare size={30} className='cursor-pointer'/>
+        < AiOutlineInstagram size={30} className='cursor-pointer'/>
         </div>
 
         <div className='px-2'>
-          <FaTwitterSquare size={30} className='cursor-pointer'/>
+          <AiOutlineTwitter size={30} className='cursor-pointer'/>
         </div>
       </div>
     </div>
