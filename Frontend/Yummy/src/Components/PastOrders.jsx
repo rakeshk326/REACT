@@ -54,7 +54,7 @@ const PastOrders = () => {
               src={CartEmpty}
               alt="CartEmpty" />
           </div>
-          <div className='text-center font-semibold text-xl mt-2'>You haven't ordered anything</div>
+          <div className='text-center font-semibold text-md md:text-xl mt-2'>You haven't ordered anything</div>
         </div>
       )}
 
