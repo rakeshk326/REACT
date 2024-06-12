@@ -30,14 +30,14 @@ const OrderHistory = () => {
             </div>
 
             {confirmedItems.length === 0 && (
-                <div className='flex flex-col justify-center items-center h-screen'>
+                <div className='flex flex-col justify-center items-center mt-48'>
                 <div>
                     <img
                     className='h-28 w-28'
                     src={CartEmpty}
                     alt="CartEmpty" />
                 </div>
-                <div className='text-center text-xl mt-2'>Your haven't ordered anything</div>
+                <div className='text-center font-normal md:font-semibold mt-2'>Your haven't ordered anything</div>
                 </div>
             )}
 

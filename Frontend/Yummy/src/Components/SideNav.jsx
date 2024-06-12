@@ -31,42 +31,42 @@ const SideNav = ({ sideNav, handleClick }) => {
           <ul className='flex flex-col p-6 text-gray-900'>
 
             <Link to="/myaccount">
-            <li className='text-xl font-semibold py-4 flex'>
+            <li className='text-xl font-normal md:font-semibold py-4 flex'>
                 <BsPerson className='text-white bg-gray-900 rounded-full font-extrabold px-1 mt-1 mr-4' size={25}/>
                 My Account
             </li>
             </Link>
 
             <Link to="/main">
-            <li className='text-xl font-semibold py-4 flex'>
+            <li className='text-xl font-normal md:font-semibold py-4 flex'>
                 <BiFoodMenu className='text-white bg-gray-900 rounded-full font-extrabold px-1 mr-4' size={25}/>
                 Main Menu
               </li>
             </Link>
 
             <Link to="/pastorders">
-              <li className='text-xl font-semibold py-4 flex'>
+              <li className='text-xl font-normal md:font-semibold py-4 flex'>
                 <AiOutlineHistory className='text-white bg-gray-900 rounded-full font-extrabold px-1 mr-4' size={25}/>
                 My Orders
               </li>
             </Link>
 
               <Link to="/orders">
-              <li className='text-xl font-semibold py-4 flex'>
+              <li className='text-xl font-normal md:font-semibold py-4 flex'>
                 <BsFillCartFill className='text-white bg-gray-900 rounded-full font-extrabold px-1 mr-4' size={25}/>
                 My Cart
               </li>
               </Link>
 
               <Link to="/delivery">
-              <li className='text-xl font-semibold py-4 flex'>
+              <li className='text-xl font-normal md:font-semibold py-4 flex'>
                 <TbTruckReturn className='text-white bg-gray-900 rounded-full font-extrabold px-1 mr-4' size={25}/>
                 Delivery
               </li>
               </Link>
 
               <Link to="/">
-              <button onClick={handleLogout} className='text-xl font-semibold py-4 flex'>
+              <button onClick={handleLogout} className='text-xl font-normal md:font-semibold py-4 flex'>
                 <TbLogout2 className='text-white bg-gray-900 rounded-full font-extrabold px-1 mr-4' size={25}/>
                 Log out
               </button>
