@@ -66,7 +66,7 @@ const EditProfile = () => {
           src={YummyLogo}
           alt="YummyLogo"
         />
-        <h2 className="mt-3 md:mt-4 text-center text-xl md:text-2xl font-bold leading-9 tracking-tight text-gray-900">
+        <h2 className="mt-3 md:mt-4 text-center text-[17px] md:text-[22px] font-bold leading-9 tracking-tight text-gray-900">
           Update your details
         </h2>
       </div>
