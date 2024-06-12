@@ -1,6 +1,4 @@
-import Cookies from 'js-cookie';
-
 export const isAuthenticated = () => {
-    const token = Cookies.get('token');
+    const token = localStorage.getItem('token');
     return !!token;
-}
+};

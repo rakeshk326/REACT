@@ -26,7 +26,6 @@ const handleSubmit = async (e) => {
   try {
     const response = await axios.post("https://yummy-foods.onrender.com/user/signin", userData, { withCredentials: true });
     localStorage.setItem('token', response.token, { HttpOnly: true });
-    console.log(response);
     
     if (response.status == 200) {
       navigate('/main');
@@ -43,7 +42,7 @@ const handleSubmit = async (e) => {
 };
   
   return (
-    <div className="flex flex-col justify-center min-h-screen items-center px-6 py-12 lg:px-8">
+    <div className="flex flex-col justify-center mt-56 items-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img
           className="mx-auto h-12 lg:h-16 w-auto"
