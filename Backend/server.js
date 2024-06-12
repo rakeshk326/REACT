@@ -11,7 +11,7 @@ const { checkForAuthenticationCookie } = require('./middlewares/authentication')
 
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ 
-    origin: 'https://yummy-food-po8r.onrender.com', 
+    origin: 'https://yummy-food-po8r.onrender.com',
     credentials: true,
     exposedHeaders: ["Set-Cookie"]
 }))

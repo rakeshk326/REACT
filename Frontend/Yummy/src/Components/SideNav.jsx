@@ -11,6 +11,7 @@ const SideNav = ({ sideNav, handleClick }) => {
 
   function handleLogout() {
     localStorage.removeItem('token');
+    // Cookies.remove('token');
   }
 
   return (

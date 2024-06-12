@@ -104,7 +104,7 @@ const Orders = () => {
               src={CartEmpty}
               alt="CartEmpty" />
           </div>
-          <div className='text-center font-normal md:font-semibold text-md md:text-xl mt-2'>Your cart is empty</div>
+          <div className='text-center font-normal text-md md:text-xl mt-2'>Your cart is empty</div>
         </div>
       )}
 
@@ -116,7 +116,7 @@ const Orders = () => {
               src={OrderPlaced}
               alt="OrderPlaced" />
           </div>
-          <div className='text-center font-normal md:font-semibold text-md md:text-xl mt-4'>Your order is placed</div>
+          <div className='text-center font-normal text-md md:text-xl mt-4'>Your order is placed</div>
         </div>
       )}
 

@@ -25,7 +25,7 @@ const handleSubmit = async (e) => {
  
   try {
     const response = await axios.post("https://yummy-foods.onrender.com/user/signin", userData, { withCredentials: true });
-    localStorage.setItem('token', response.token, { HttpOnly: true });
+    localStorage.setItem('token', response.data.token, { HttpOnly: true });
     
     if (response.status == 200) {
       navigate('/main');
